@@ -16,8 +16,9 @@ export default function IntroCard(input) {
     // List of individuals with profile, name, age, phone, and profession
     // ...
   ];
-
-  // Loop through the data array to find a match based on the input name
+```
+Loop through the data array to find a match based on the input name
+```jsx
   for (let i = 0; i < data.length; i++) {
     // Check if the lowercase name includes the lowercase input name
     let s = data[i].name.toLowerCase();
@@ -31,9 +32,10 @@ export default function IntroCard(input) {
       break; // Break the loop once a match is found
     }
   }
-
-  // Render the introduction card with extracted information
-  return (
+```
+Render the introduction card with extracted information
+  ```jsx
+return (
     <div className="Parent">
       <div className="card">
         <img src={profile} className="card-img-top" alt="..." />
