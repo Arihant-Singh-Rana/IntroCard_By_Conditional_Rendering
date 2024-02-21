@@ -1,4 +1,4 @@
-# Introduction Card React Component
+# Introduction Card React Component With Conditional Rendering
 
 This React component, named `IntroCard`, is designed to display information about individuals based on a provided name input. It utilizes a predefined dataset of notable figures and searches for a match based on the input name. If a match is found, it generates an introduction card with details such as profile image, name, age, phone number, and profession.
 
