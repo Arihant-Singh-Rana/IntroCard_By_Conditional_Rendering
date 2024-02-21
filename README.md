@@ -1,72 +1,114 @@
-# Getting Started with Create React App
+# Introduction Card React Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React component, named `IntroCard`, is designed to display information about individuals based on a provided name input. It utilizes a predefined dataset of notable figures and searches for a match based on the input name. If a match is found, it generates an introduction card with details such as profile image, name, age, phone number, and profession.
 
-## Available Scripts
+## Component Structure
 
-In the project directory, you can run:
+The `IntroCard` component consists of the following structure:
 
-### `npm start`
+```jsx
+import React from "react";
+import "./IntroCard.css";
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+export default function IntroCard(input) {
+  // Data array containing information about notable figures
+  let data = [
+    // List of individuals with profile, name, age, phone, and profession
+    // ...
+  ];
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  // Loop through the data array to find a match based on the input name
+  for (let i = 0; i < data.length; i++) {
+    // Check if the lowercase name includes the lowercase input name
+    let s = data[i].name.toLowerCase();
+    if (s.includes(input.Name.toLowerCase())) {
+      // Extract information for the matching individual
+      var name = data[i].name;
+      var profile = data[i].Profile;
+      var age = data[i].Age;
+      var number = data[i].Phone;
+      var profession = data[i].Profession;
+      break; // Break the loop once a match is found
+    }
+  }
 
-### `npm test`
+  // Render the introduction card with extracted information
+  return (
+    <div className="Parent">
+      <div className="card">
+        <img src={profile} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h1 className="card-title">
+            <b>{name}</b>
+          </h1>
+          <h2>Age: {age}</h2>
+          <h2>Phone: {number}</h2>
+          <h2>Profession: {profession}</h2>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Styling
 
-### `npm run build`
+The styling for the component is defined in a separate CSS file named `IntroCard.css`. Here are the key styles:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```css
+.Parent {
+  margin-top: 10px;
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+.card {
+  height: 750px;
+  width: 600px;
+  margin: auto;
+  box-shadow: 10px 10px 10px black;
+  border-color: #213555;
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+.card-img-top {
+  height: 500px;
+  width: 600px;
+}
 
-### `npm run eject`
+.card-body {
+  text-align: center;
+  background-color: #213555;
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+.card-title {
+  text-shadow: 0px 0px 20px black, 0px 0px 20px gold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: aliceblue;
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+h2 {
+  color: #d8c4b6;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage in App Component
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The `IntroCard` component is utilized in the `App` component as follows:
 
-## Learn More
+```jsx
+import React from "react";
+import "./App.css";
+import IntroCard from "./Components/IntroCard";
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+function App() {
+  return (
+    <div className="App">
+      <IntroCard Name="Modi" />
+    </div>
+  );
+}
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+export default App;
+```
 
-### Code Splitting
+The `App` component renders the `IntroCard` component and passes the name "Modi" as input.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# IntroCard_By_Conditional_Rendering
-# IntroCard_By_Conditional_Rendering
