@@ -5,7 +5,7 @@ import IntroCard from "./Components/IntroCard";
 function App() {
   return (
     <div className="App">
-      <IntroCard Name="Modi" />
+      <IntroCard Name="NaRenD" />
     </div>
   );
 }
